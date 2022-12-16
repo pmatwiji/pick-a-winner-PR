@@ -1,38 +1,159 @@
-.App {
-  text-align: center;
+@import "variables.css";
+
+/** SCROLLBAR **/
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #001ba9 #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+*::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
 }
 
-.App-link {
-  color: #61dafb;
+/**APP**/
+
+.app {
+    background-color: var(--main-color);
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/** LOGO **/
+
+.logo__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 15vh;
+}
+
+/** MAIN **/
+
+.main__container {
+    width: 60%;
+    max-height: 80vh;
+    min-height: 80vh;
+    color: #000;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 2.5rem;
+}
+
+/**LIST AND ADD USER **/
+
+.users__list {
+    max-height: 60vh;
+    overflow-y: scroll;
+    margin-bottom: 2rem;
+}
+
+.add_btn {
+    margin-top: 0.5rem;
+    background-color: var(--main-color);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+}
+
+/** PICKER **/
+
+.picker__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content__container {
+    font-weight: 600;
+    overflow: hidden;
+    height: 40px;
+    padding: 0 40px;
+    font-size: 35px;
+    max-width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+.content__container__list {
+    margin-top: 0;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+.content__container__list__item {
+    line-height: 40px;
+    margin: 0;
+    max-width: 100%;
+}
+
+.slow_change {
+    animation-name: change;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+.fast_change {
+    animation-name: fastChange;
+    animation-duration: 0.1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes change {
+    0% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(50%);
+    }
+    100% {
+        transform: translateY(-46.5%);
+    }
+}
+
+@keyframes fastChange {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.winner_btn {
+    margin-top: 2rem;
+    background-color: var(--secondary-color);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--main-color);
+    padding: 0 2rem !important;
+}
+
+/** MODAL **/
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
