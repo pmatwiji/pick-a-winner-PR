@@ -83,12 +83,12 @@ const App: FC = () => {
             {open ? <Confetti /> : null}
             <Row justify="center" align="middle">
                 <Col span={24} className="logo__container">
-                    <Image src={Logo} preview={false} width={300} />
+                    <Image src={Logo} preview={false} width={"15vw"} />
                 </Col>
             </Row>
             <Row className="main__container">
                 <Col span={14} className="picker__container">
-                    <Image src={Trophy} preview={false} width={500} />
+                    <Image src={Trophy} preview={false} width={"25vw"} />
                     <div className="content__container">
                         <ul
                             className={
@@ -189,7 +189,7 @@ const App: FC = () => {
                 footer={null}
             >
                 <div className="modal">
-                    <Image src={Medal} preview={false} width={200} />
+                    <Image src={Medal} preview={false} width={"10vw"} />
                     <Typography.Title style={{ margin: 0 }}>
                         Felicitaciones
                     </Typography.Title>
