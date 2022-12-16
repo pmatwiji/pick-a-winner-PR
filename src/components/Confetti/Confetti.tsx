@@ -845,6 +845,12 @@ const Confetti: FC = () => {
                     }
                     className="square"
                 ></i>
+                <i
+                    style={
+                        { "--speed": 36, "--bg": "red" } as React.CSSProperties
+                    }
+                    className="square"
+                ></i>
             </div>
         </div>
     );
