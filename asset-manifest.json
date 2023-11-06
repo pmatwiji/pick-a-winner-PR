@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/pick-a-winner-PR/static/css/main.bc4d9a32.css",
-    "main.js": "/pick-a-winner-PR/static/js/main.08bf002c.js",
+    "main.css": "/pick-a-winner-PR/static/css/main.5911bd6d.css",
+    "main.js": "/pick-a-winner-PR/static/js/main.5c2cf953.js",
     "static/js/787.9cf7cc11.chunk.js": "/pick-a-winner-PR/static/js/787.9cf7cc11.chunk.js",
     "static/media/logo-white.png": "/pick-a-winner-PR/static/media/logo-white.c89c5f740aad0b79d485.png",
     "static/media/medal.png": "/pick-a-winner-PR/static/media/medal.b2f47118cacbfb25ab00.png",
     "static/media/trophy.png": "/pick-a-winner-PR/static/media/trophy.f40145845a2fe05d6a6d.png",
     "index.html": "/pick-a-winner-PR/index.html",
-    "main.bc4d9a32.css.map": "/pick-a-winner-PR/static/css/main.bc4d9a32.css.map",
-    "main.08bf002c.js.map": "/pick-a-winner-PR/static/js/main.08bf002c.js.map",
+    "main.5911bd6d.css.map": "/pick-a-winner-PR/static/css/main.5911bd6d.css.map",
+    "main.5c2cf953.js.map": "/pick-a-winner-PR/static/js/main.5c2cf953.js.map",
     "787.9cf7cc11.chunk.js.map": "/pick-a-winner-PR/static/js/787.9cf7cc11.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc4d9a32.css",
-    "static/js/main.08bf002c.js"
+    "static/css/main.5911bd6d.css",
+    "static/js/main.5c2cf953.js"
   ]
 }
