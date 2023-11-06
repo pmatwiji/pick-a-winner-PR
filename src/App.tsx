@@ -223,7 +223,6 @@ const App: FC = () => {
                     </Row>
                 </Col>
             </Row>
-
             <Modal
                 open={open}
                 onOk={handleOk}
