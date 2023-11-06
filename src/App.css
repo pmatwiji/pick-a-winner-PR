@@ -58,6 +58,7 @@
 /**LIST AND ADD USER **/
 
 .users__list {
+    height: 60vh;
     max-height: 60vh;
     overflow-y: scroll;
     margin-bottom: 2rem;

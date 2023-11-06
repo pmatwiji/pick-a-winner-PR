@@ -1,23 +1,23 @@
-import { FC, useEffect, useState } from "react";
-import "./App.css";
+import { CloseOutlined, UploadOutlined } from "@ant-design/icons";
 import {
-    Row,
-    Image,
-    List,
-    Typography,
-    Input,
     Button,
-    Tooltip,
+    Image,
+    Input,
+    List,
     Modal,
+    Row,
+    Tooltip,
+    Typography,
 } from "antd";
 import { Col } from "antd/es/grid";
+import { FC, useState } from "react";
+import * as XLSX from "xlsx";
 import Logo from "../src/assets/logo-white.png";
-import Trophy from "../src/assets/trophy.png";
 import Medal from "../src/assets/medal.png";
-import { confirmedUsers } from "./mocks/confirmedUsers";
-import { IUser } from "./models/users";
-import { CloseOutlined } from "@ant-design/icons";
+import Trophy from "../src/assets/trophy.png";
+import "./App.css";
 import Confetti from "./components/Confetti/Confetti";
+import { IUser } from "./models/users";
 
 const App: FC = () => {
     const [participants, setParticipants] = useState<IUser[]>([]);
@@ -27,10 +27,6 @@ const App: FC = () => {
     const [open, setOpen] = useState<boolean>(false);
     const [winner, setWinner] = useState<IUser>();
     const [status, setStatus] = useState<any>("");
-
-    useEffect(() => {
-        setParticipants(confirmedUsers);
-    }, []);
 
     const handleInput = (value: string) => {
         if (value.length > 0) setStatus("");
@@ -76,6 +72,28 @@ const App: FC = () => {
 
     const handleCancel = () => {
         setOpen(false);
+    };
+
+    const handleFileUpload = (e: any) => {
+        let users: IUser[] = [];
+        const reader = new FileReader();
+        reader.readAsBinaryString(e.target.files[0]);
+        reader.onload = (e) => {
+            const data = e.target?.result;
+            const workbook = XLSX.read(data, { type: "binary" });
+            const sheetname = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetname];
+            const parsedData = XLSX.utils.sheet_to_json(sheet);
+            parsedData.forEach((row: any, index: any) => {
+                Object.values(row).map((value: any) =>
+                    users.push({
+                        id: index,
+                        name: value,
+                    })
+                );
+            });
+            setParticipants(users);
+        };
     };
 
     return (
@@ -169,14 +187,40 @@ const App: FC = () => {
                             </Typography.Text>
                         )}
                     </Row>
-                    <Button
-                        className="add_btn"
-                        type="primary"
-                        onClick={handleAddParticipant}
-                        loading={isPushing}
-                    >
-                        Agregar
-                    </Button>
+                    <Row gutter={12}>
+                        <Col span={8}>
+                            <Button
+                                className="add_btn"
+                                type="primary"
+                                onClick={handleAddParticipant}
+                                loading={isPushing}
+                            >
+                                Agregar
+                            </Button>
+                        </Col>
+                        <Col
+                            span={16}
+                            style={{
+                                display: "flex",
+                                justifyContent: "flex-end",
+                            }}
+                        >
+                            <Button className="add_btn" type="primary">
+                                <label
+                                    htmlFor="file-upload"
+                                    style={{ marginTop: "1rem" }}
+                                >
+                                    <UploadOutlined /> Importar listado
+                                </label>
+                                <Input
+                                    id="file-upload"
+                                    style={{ display: "none" }}
+                                    type="file"
+                                    onChange={handleFileUpload}
+                                />
+                            </Button>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
             <Modal
